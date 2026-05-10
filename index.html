@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>學習素材累積</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">花蓮高商</p>
+        <h1>學習素材累積</h1>
+      </div>
+      <button class="primary-btn" id="newItemBtn" type="button">+ 新增素材</button>
+    </header>
+
+    <main>
+      <section class="hero" id="homeView">
+        <div class="hero-copy">
+          <p class="count" id="itemCount">已累積 0 筆</p>
+          <p class="prompt" id="dailyPrompt">今天有沒有哪一刻你想記下來?</p>
+        </div>
+        <div class="first-note" id="firstNote">
+          <h2>先留下一句也可以</h2>
+          <p>這裡只是素材暫存。想到什麼就先記，之後再慢慢整理。</p>
+          <button class="primary-btn wide" id="firstItemBtn" type="button">+ 新增第一筆素材</button>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="篩選素材">
+        <div class="segmented" id="typeFilters">
+          <button class="segment active" type="button" data-filter-type="all">全部</button>
+          <button class="segment" type="button" data-filter-type="course">課程學習成果</button>
+          <button class="segment" type="button" data-filter-type="multi">多元表現</button>
+        </div>
+        <label class="select-label">
+          <span>科目 / 類別</span>
+          <select id="subjectFilter">
+            <option value="all">全部</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="list" id="itemList" aria-live="polite"></section>
+      <p class="empty" id="emptyState">還沒有素材。先新增一筆，寫一句也可以。</p>
+    </main>
+  </div>
+
+  <section class="editor" id="editorView" hidden>
+    <div class="editor-panel">
+      <div class="editor-head">
+        <div>
+          <p class="eyebrow" id="editorMode">新增素材</p>
+          <h2 id="editorTitle">記一筆素材</h2>
+        </div>
+        <button class="ghost-btn" id="cancelEditBtn" type="button">回列表</button>
+      </div>
+
+      <form id="itemForm">
+        <input type="hidden" id="itemId">
+
+        <fieldset class="type-choice">
+          <legend>類型</legend>
+          <label>
+            <input type="radio" name="itemType" value="course" checked>
+            <span>課程學習成果</span>
+          </label>
+          <label>
+            <input type="radio" name="itemType" value="multi">
+            <span>多元表現</span>
+          </label>
+        </fieldset>
+
+        <div class="form-grid">
+          <label>
+            <span>標題</span>
+            <input id="titleInput" maxlength="30" required placeholder="一句話就好，例如店面陳列觀察">
+          </label>
+          <label>
+            <span id="subjectLabel">科目</span>
+            <input id="subjectTextInput" placeholder="自己輸入，例如商概、會計、國文">
+            <select id="subjectSelectInput" hidden></select>
+          </label>
+          <label>
+            <span>日期</span>
+            <input id="dateInput" type="date">
+          </label>
+        </div>
+
+        <div class="three-things" id="threeThings"></div>
+
+        <label class="note-field">
+          <span>備註</span>
+          <textarea id="noteInput" rows="3" placeholder="可以放連結、補充一句話，沒有也沒關係"></textarea>
+        </label>
+
+        <div class="photo-box">
+          <label>
+            <span>附加照片</span>
+            <input id="photoInput" type="file" accept="image/*" multiple>
+          </label>
+          <p>照片會壓縮後存在這台裝置。換手機或清快取前，請先匯出 PDF 或備份。</p>
+          <div class="photo-preview" id="photoPreview"></div>
+        </div>
+
+        <div class="form-actions">
+          <button class="primary-btn wide" type="submit">儲存</button>
+          <button class="ghost-btn wide" type="button" id="clearFormBtn">清空這張表</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <section class="print-page" id="printPage" aria-hidden="true"></section>
+  <script src="assets/app.js"></script>
+</body>
+</html>
