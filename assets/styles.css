@@ -33,6 +33,17 @@ button {
   cursor: pointer;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -398,16 +409,32 @@ textarea {
   font-weight: 700;
 }
 
-.type-choice label {
+.type-card {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   min-height: 48px;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 252, 246, 0.74);
   padding: 12px;
   color: var(--ink);
+  text-align: center;
+  cursor: pointer;
+}
+
+.type-card:has(input:checked) {
+  border-color: var(--primary);
+  background: rgba(63, 127, 114, 0.13);
+  color: var(--primary-dark);
+  box-shadow: inset 0 0 0 1px rgba(63, 127, 114, 0.18);
+}
+
+.type-card:has(input:focus-visible) {
+  outline: 3px solid rgba(63, 127, 114, 0.28);
+  outline-offset: 2px;
 }
 
 .form-grid,
