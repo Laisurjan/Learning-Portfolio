@@ -339,6 +339,19 @@ textarea {
   display: block;
 }
 
+.site-footer {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  padding: 18px 4px 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.site-footer p {
+  margin-bottom: 6px;
+}
+
 .editor {
   position: fixed;
   inset: 0;
