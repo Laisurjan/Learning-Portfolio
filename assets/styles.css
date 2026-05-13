@@ -2,7 +2,7 @@
   --ink: #2c2a26;
   --muted: #6f675d;
   --paper: #fbf6ed;
-  --panel: rgba(255, 252, 246, 0.88);
+  --panel: rgba(255, 252, 246, 0.82);
   --line: rgba(70, 61, 50, 0.16);
   --primary: #3f7f72;
   --primary-dark: #2d6157;
@@ -48,9 +48,9 @@ button {
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(rgba(251, 246, 237, 0.82), rgba(251, 246, 237, 0.9)),
+    linear-gradient(rgba(251, 246, 237, 0.72), rgba(251, 246, 237, 0.82)),
     url("../future-full-bright.png") center / cover no-repeat;
-  filter: saturate(0.72);
+  filter: saturate(0.8);
   z-index: -1;
 }
 
